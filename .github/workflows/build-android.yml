@@ -61,7 +61,20 @@ jobs:
       - name: Build debug APK
         shell: bash
         run: |
+          rm -f bin/*.apk
+          set +e
           yes | buildozer -v android debug
+          BUILD_STATUS=${PIPESTATUS[1]}
+          set -e
+
+          APK="$(find bin -maxdepth 1 -type f -name '*.apk' -print -quit)"
+          if [ -n "$APK" ] && [ -s "$APK" ]; then
+            echo "APK successfully created: $APK"
+            exit 0
+          fi
+
+          echo "Build failed: no APK was created (buildozer exit code: $BUILD_STATUS)"
+          exit "${BUILD_STATUS:-1}"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
