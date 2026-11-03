@@ -61,7 +61,6 @@ jobs:
       - name: Build debug APK
         shell: bash
         run: |
-          set -o pipefail
           yes | buildozer -v android debug
 
       - name: Upload APK
