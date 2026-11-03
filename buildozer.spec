@@ -13,8 +13,8 @@ android.api = 35
 android.minapi = 23
 android.archs = arm64-v8a,armeabi-v7a
 android.allow_backup = False
+p4a.branch = v2024.01.21
 
 [buildozer]
 log_level = 2
 warn_on_root = 1
-p4a.branch = v2024.01.21
