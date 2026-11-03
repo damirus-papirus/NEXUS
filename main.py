@@ -20,6 +20,7 @@ REGISTRY_TTL_MINUTES = 15
 GITHUB_API = "https://api.github.com"
 
 KV = r"""
+#:import dp kivy.metrics.dp
 <MainScreen>:
     BoxLayout:
         orientation: "vertical"
@@ -144,7 +145,7 @@ KV = r"""
             Label:
                 text: app.log_text
                 size_hint_y: None
-                height: self.texture_size[1] + "16dp"
+                height: self.texture_size[1] + dp(16)
                 text_size: self.width, None
                 valign: "top"
                 halign: "left"
