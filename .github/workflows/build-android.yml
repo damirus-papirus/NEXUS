@@ -36,7 +36,12 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y             git zip unzip build-essential             autoconf automake libtool pkg-config             zlib1g-dev libncurses5-dev libncursesw5-dev             libtinfo5 cmake libffi-dev libssl-dev             libltdl-dev
+          sudo apt-get install -y \
+            git zip unzip build-essential \
+            autoconf automake libtool pkg-config \
+            zlib1g-dev libncurses5-dev libncursesw5-dev \
+            libtinfo5 cmake libffi-dev libssl-dev \
+            libltdl-dev
 
       - name: Install Buildozer
         run: |
@@ -44,7 +49,10 @@ jobs:
           pip install "buildozer==1.5.0" "cython<3"
 
       - name: Build debug APK
-        run: buildozer -v android debug
+        shell: bash
+        run: |
+          set -o pipefail
+          yes | buildozer -v android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
