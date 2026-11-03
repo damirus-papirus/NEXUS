@@ -17,3 +17,4 @@ android.allow_backup = False
 [buildozer]
 log_level = 2
 warn_on_root = 1
+p4a.branch = v2024.01.21
