@@ -33,6 +33,16 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Restore Android build cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.buildozer
+            .buildozer
+          key: android-${{ runner.os }}-${{ hashFiles('buildozer.spec', 'requirements.txt') }}
+          restore-keys: |
+            android-${{ runner.os }}-
+
       - name: Install system dependencies
         run: |
           sudo apt-get update
