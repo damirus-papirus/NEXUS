@@ -5,7 +5,7 @@ package.domain = org.damiruspapirus
 source.dir = .
 source.include_exts = py,kv,png,jpg,atlas
 version = 1.0.0
-requirements = python3,kivy==2.3.1,websockets==12.0,requests
+requirements = python3,kivy==2.3.1,websockets==12.0,requests,filetype==1.2.0
 orientation = portrait
 fullscreen = 0
 android.permissions = INTERNET,ACCESS_NETWORK_STATE,ACCESS_WIFI_STATE,WAKE_LOCK
